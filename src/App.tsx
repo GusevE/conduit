@@ -22,7 +22,6 @@ function App() {
   );
   const dispatch = useAppDispatch();
 
-  console.log(getCount);
 
   const tagsUrl = selectTag ? `&tag=${selectTag}` : "";
 
