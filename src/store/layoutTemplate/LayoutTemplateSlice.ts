@@ -21,9 +21,7 @@ export const LayoutTemplateState = createSlice({
 
   reducers: {
     updateCount: (state, { payload }: PayloadAction<number>) => {
-      
       state.getCount = Math.ceil(payload / 10)   
-
 },
     countChange: (state, { payload }: PayloadAction<number>) => {
           state.count = payload
@@ -36,8 +34,6 @@ export const LayoutTemplateState = createSlice({
 });
 
 export const {
-
-
   updateCount,
   countChange,
   changeTag,

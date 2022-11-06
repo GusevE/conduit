@@ -24,7 +24,9 @@ interface Props {
 export default function ContainerPage(props: Props) {
   const { data, tags } = props;
   const [value, setValue] = useState(0);
-  const { selectTag } = useAppSelector((state) => state.LayoutTemplateState);
+  const { selectTag, getCount } = useAppSelector(
+    (state) => state.LayoutTemplateState
+  );
 
   const dispatch = useAppDispatch();
 
@@ -189,8 +191,7 @@ export default function ContainerPage(props: Props) {
             </div>
           </Box>
         </Box>
-
-        <PaginationRounded />
+        {getCount >= 2 && <PaginationRounded />}
       </Box>
     </>
   );

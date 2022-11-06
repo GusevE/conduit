@@ -15,13 +15,15 @@ export default function SinglePage() {
   useEffect(() => {
     fetch(`https://conduit.productionready.io/api/articles/${id}`)
       .then((response) => response.json())
-      .then((json) => setData(json.article));
+      .then((json) => setData(json.article))
+      .catch((err) => console.error(err));
   }, [id]);
 
   useEffect(() => {
     fetch(`https://api.realworld.io/api/articles/${id}/comments`)
       .then((response) => response.json())
-      .then((json) => setComment(json.comments));
+      .then((json) => setComment(json.comments))
+      .catch((err) => console.error(err));
   }, [id]);
 
   return (

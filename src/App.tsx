@@ -22,6 +22,8 @@ function App() {
   );
   const dispatch = useAppDispatch();
 
+  console.log(getCount);
+
   const tagsUrl = selectTag ? `&tag=${selectTag}` : "";
 
   const urlCount = (selectTag: string) => {
@@ -48,13 +50,15 @@ function App() {
       .then((response) => response.json())
       .then((json) => {
         setData(json.articles), dispatch(updateCount(json.articlesCount));
-      });
+      })
+      .catch((err) => console.error(err));
   }, [count, selectTag]);
 
   useEffect(() => {
     fetch("https://conduit.productionready.io/api/tags")
       .then((response) => response.json())
-      .then((json) => setTags(json.tags));
+      .then((json) => setTags(json.tags))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
