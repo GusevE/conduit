@@ -12,10 +12,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <React.StrictMode>
+    <BrowserRouter basename={window.location.pathname || ''}>
         <App />
-      </React.StrictMode>
     </BrowserRouter>
   </Provider>
 );
